@@ -11,8 +11,8 @@ import com.smkth.app3_recycleview.utils.DummyData
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-
-
+import android.app.Activity
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -63,6 +63,21 @@ class MainActivity : AppCompatActivity() {
             }
             .setNegativeButton("Batal", null)
             .show()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK && data != null) {
+            val position = data.getIntExtra("position", -1)
+            val nama = data.getStringExtra("student_nama") ?: return
+            val nis = data.getStringExtra("student_nis") ?: return
+            val kelas = data.getStringExtra("student_kelas") ?: return
+
+            if (position != -1) {
+                studentList[position] = Student(nama, nis, kelas)
+                studentAdapter.notifyItemChanged(position)
+            }
+        }
     }
 }
 
