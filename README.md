@@ -110,34 +110,34 @@ Saat aplikasi dijalankan, RecycleView hanya akan membuat sejumlah tampilan item 
 
 ## 🧩 Penjelasan Code
 ### 📄 MainActivity.kt
-🔹 Bagian penting:
+#### Bagian penting:
 1. recyclerView.adapter = studentAdapter → Menampilkan daftar siswa dengan adapter yang sudah dibuat.
 2. btnAdd.setOnClickListener { ... } → Aksi tombol tambah siswa, membuka AddEditActivity.
 3. startActivityForResult(...) dan onActivityResult(...) → Menerima data baru/yang diedit dari AddEditActivity dan memperbarui daftar.
-📖 Penjelasan umum:
+#### Penjelasan umum:
 - Menampilkan list data siswa menggunakan RecyclerView.
 - Data siswa berasal dari class StudentDB.
 - Tombol tambah (FloatingActionButton) digunakan untuk memulai AddEditActivity.
 - Saat kembali dari AddEditActivity, data baru akan ditambahkan atau data lama akan diperbarui, lalu adapter akan di-notify supaya tampilannya di-refresh.
 
 ### 📄 AddEditActivity.kt
-🔹 Bagian penting:
+#### Bagian penting:
 1. val student = intent.getSerializableExtra(...) → Mendeteksi apakah aktivitas ini untuk edit atau tambah siswa.
 2. btnSave.setOnClickListener { ... } → Mengambil data dari input lalu mengirim balik ke MainActivity (untuk tambah atau edit).
 3. val resultIntent = Intent() dan setResult(...) → Mengirim data hasil input balik ke MainActivity.
-📖 Penjelasan umum:
+#### Penjelasan umum:
 - Form input data siswa: nama, kelas, alamat.
 - Jika menerima data lama dari MainActivity, artinya mode edit, maka form akan terisi otomatis.
 - Jika tidak ada data lama, artinya mode tambah.
 - Setelah tombol simpan diklik, data dikirim balik ke MainActivity menggunakan Intent.
 
 ### 📄 StudentAdapter.kt
-🔹 Bagian penting:
+#### Bagian penting:
 1. fun onBindViewHolder(...) → Menampilkan data siswa ke tampilan tiap item di RecycleView.
 2. holder.btnDelete.setOnClickListener { ... } → Menghapus data dari daftar ketika tombol hapus ditekan.
 3. holder.btnEdit.setOnClickListener { ... } → Mengirim data ke AddEditActivity untuk diedit.
 4. notifyDataSetChanged() → Menyegarkan tampilan RecycleView setelah ada perubahan data.
-📖 Penjelasan umum:
+#### Penjelasan umum:
 - Menampilkan data siswa di setiap item RecyclerView.
 - Di dalam item ada tombol edit dan hapus.
   • Edit: membuka AddEditActivity dengan membawa data lama untuk diedit.
@@ -145,20 +145,20 @@ Saat aplikasi dijalankan, RecycleView hanya akan membuat sejumlah tampilan item 
 - Adapter menggunakan interface StudentClickInterface dan StudentClickDeleteInterface untuk menangani aksi tombol.
 
 ### 📄 StudentDB.kt
-🔹 Bagian penting:
+#### Bagian penting:
 1. val studentList = mutableListOf<Student>() → Penyimpanan data siswa sementara (pakai ArrayList).
 2. Fungsi seperti addStudent(...), updateStudent(...), dan deleteStudent(...) → Menangani logika penambahan, pengeditan, dan penghapusan siswa dari list.
-📖 Penjelasan umum:
+#### Penjelasan umum:
 - Penyimpanan data sementara pakai ArrayList.
 - Memiliki fungsi: getAllStudents(), addStudent(), updateStudent(), deleteStudent().
 - Digunakan oleh MainActivity untuk mengelola data siswa.
 
 ### 📄 Layout
-🔹 Bagian penting:
+#### Bagian penting:
 1. activity_main.xml: berisi RecyclerView dan tombol tambah siswa.
 2. student_item.xml: berisi tampilan satu siswa (nama, kelas, alamat, tombol edit & hapus).
 3. activity_add_edit.xml: berisi form input nama, kelas, alamat, dan tombol simpan.
-📖 Penjelasan umum:
+#### Penjelasan umum:
 1. activity_main.xml : layout utama aplikasi.
 Komponen utamanya:
 - RecyclerView: untuk menampilkan daftar siswa dalam bentuk list.
