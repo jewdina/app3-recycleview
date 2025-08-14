@@ -172,4 +172,7 @@ Komponennya:
 - TextView: menampilkan nama, kelas, dan alamat siswa.
 - Dua buah ImageView atau Button: satu untuk edit dan satu untuk hapus data.
 
-
+## 🚩Hasil
+![WhatsApp 이미지 2025-08-14, 10 18 38_c074f3c0](https://github.com/user-attachments/assets/b737784d-db03-4743-a768-1332038c9c97)
+![WhatsApp 이미지 2025-08-14, 10 18 38_99538900](https://github.com/user-attachments/assets/dba67a8b-af2c-46e0-9430-a27e1987f9ce)
+![WhatsApp 이미지 2025-08-14, 10 18 39_751d923c](https://github.com/user-attachments/assets/c20b613d-0f00-4bd9-b90d-b2dfd89005b4)
