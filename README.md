@@ -1,5 +1,4 @@
 # Project Kelompok RecyclerView
-
 ini adalah proyek aplikasi Android yang dikerjakan secara berkelompok dengan menggunakan komponen RecycleView untuk menampilkan data secara dinamis dalam bentuk daftar atau grid.
 
 ## 📱 Penjelasan Fitur
